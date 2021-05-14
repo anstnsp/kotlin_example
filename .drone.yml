@@ -38,6 +38,6 @@ steps:
         Link:  <{{ build.link }}|Visit build page ↗>
 #    commands:
 #      - echo hello
-#trigger:
-#  event:
-#    - push
+trigger:
+  event:
+    - push
