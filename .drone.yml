@@ -1,0 +1,24 @@
+kind: pipeline
+type: docker
+name: default
+
+
+steps:
+  - name: 슬랙 알림
+    image: plugins/slack
+    settings:
+      webhook: https://hooks.slack.com/services/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
+      channel: 드론테스트
+      template: >
+        *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Deploy* (type: `{{ build.event }}`)
+        Repo: <https://github.com/{{ repo.owner }}/{{ repo.name }}|{{ repo.name }}>
+        Commit: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
+        Tags: <https://github.com/{{ repo.owner }}/{{ repo.name }}/tree/{{ build.tag }}|{{ build.tag }}>
+        Branch: {{ build.branch }}
+        Author: {{ build.author }}
+        Link:  <{{ build.link }}|Visit build page ↗>
+#    commands:
+#      - echo hello
+trigger:
+  event:
+    - push
