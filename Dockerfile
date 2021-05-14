@@ -3,7 +3,7 @@ FROM openjdk:8-jdk
 LABEL maintainer="anstnsp@naver.com"
 
 ## check dns resource
-#RUN apt-get update && apt-get install dpkg-reconfigure -y
+RUN apt-get update && apt-get install dpkg-reconfigure -y
 
 ## Set the timezone to KST
 ENV TZ=Asia/Seoul
@@ -14,7 +14,7 @@ RUN useradd --create-home -s /bin/bash app
 WORKDIR /home/app
 
 # Set up environment variables
-ENV JAVA_OPTS -Dfile.encoding=UTF-8 -Djava.awt.headless=true -server -Dnetworkaddress.cache.ttl=0 -Dnetworkaddress.cache.negative.ttl=0 -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:MaxRAMFraction=1 -XshowSettings:vm -Djava.security.egd=file:/dev/./urandom -javaagent:newrelic/newrelic.jar ${JAVA_OPTS}
+ENV JAVA_OPTS -Dfile.encoding=UTF-8 -Djava.awt.headless=true
 
 ARG SERVICE_NAME
 ENV SERVICE_NAME "${SERVICE_NAME}"
