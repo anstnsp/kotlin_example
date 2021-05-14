@@ -7,18 +7,18 @@ platform:
   arch: arm
 
 steps:
-  - name: build
-    image: gradle:6.6.1-jdk14
-    pull: true
-    environment:
-      GRADLE_USER_HOME: tmp/cache
-    commands:
-      - ./gradlew clean
-      - ./gradlew kotlinDemo:build -x test
-    when:
-      event: [push]
-      status:
-        - success
+#  - name: build
+#    image: gradle:6.6.1-jdk14
+#    pull: true
+#    environment:
+#      GRADLE_USER_HOME: tmp/cache
+#    commands:
+#      - ./gradlew clean
+#      - ./gradlew kotlinDemo:build -x test
+#    when:
+#      event: [push]
+#      status:
+#        - success
 
 #  - name: 배포
 #    image: drone-example:${DRONE_COMMIT_SHA}
@@ -26,7 +26,7 @@ steps:
   - name: 슬랙 알림
     image: plugins/slack
     settings:
-      webhook: https://hooks.slack.com/services/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
+      webhook: https://hooks.slack.com/services/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
       channel: 드론테스트
       template: >
         *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Deploy* (type: `{{ build.event }}`)
@@ -38,6 +38,6 @@ steps:
         Link:  <{{ build.link }}|Visit build page ↗>
 #    commands:
 #      - echo hello
-trigger:
-  event:
-    - push
+#trigger:
+#  event:
+#    - push
