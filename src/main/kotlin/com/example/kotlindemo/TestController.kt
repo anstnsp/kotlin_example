@@ -20,6 +20,7 @@ class TestController {
     ): Site {
         site.title = "바뀜"
         println(site.title)
+        println("wfwef")
         return site;
     }
 }
