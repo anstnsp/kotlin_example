@@ -26,7 +26,7 @@ steps:
   - name: 슬랙 알림
     image: plugins/slack
     settings:
-      webhook: https://hooks.slack.com/services/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
+      webhook: https://hooks.slack.com/services/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
       channel: 드론테스트용
       template: >
         *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Deploy* (type: `{{ build.event }}`)
