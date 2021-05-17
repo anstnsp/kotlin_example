@@ -24,14 +24,14 @@ steps:
 #    image: drone-example:${DRONE_COMMIT_SHA}
 #
 
-  - name: build
-    image: plugins/docker
-    settings:
-      repo: anstnsp/drone_test
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
+#  - name: build
+#    image: plugins/docker
+#    settings:
+#      repo: anstnsp/drone_test
+#      username:
+#        from_secret: docker_username
+#      password:
+#        from_secret: docker_password
 
   - name: 슬랙 알림
     image: plugins/slack
