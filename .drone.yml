@@ -7,7 +7,8 @@ platform:
   arch: amd64
 
 steps:
-#  - name: build
+
+  #  - name: build
 #    image: gradle:6.6.1-jdk14
 #    pull: true
 #    environment:
