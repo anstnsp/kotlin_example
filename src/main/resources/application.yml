@@ -1,0 +1,46 @@
+
+server:
+  port: 9999
+
+spring:
+  profiles:
+    active: local # local, dev, prod
+  pid:
+    file: kotlinServer.pid
+
+  h2:
+    console:
+      enabled: true
+  datasource:
+    username: sa
+    password:
+    url: jdbc:h2:mem:testdb
+    hikari:
+      driver-class-name: org.h2.Driver
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        fromat-sql: true
+  jms:
+    listener:
+      acknowledge-mode:
+
+logging:
+  level:
+    com.example.kotlin.demo: debug
+    org:
+      hibernate:
+        sql: debug
+        type:
+          descriptor:
+            sql: debug
+
+
+slack:
+  reportUrl: https://hooks.slack.com/services/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
+
