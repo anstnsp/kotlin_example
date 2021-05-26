@@ -1,9 +1,6 @@
 package com.example.kotlindemo.web.report
 
-
-
 import com.example.kotlindemo.annotation.Logging
-import com.example.kotlindemo.aop.PlusFriendCategory
 import com.example.kotlindemo.web.base.BaseController
 import com.example.kotlindemo.common.Log
 import com.example.kotlindemo.domain.report.Report
@@ -22,9 +19,6 @@ class ReportController(
     fun create(
         @RequestBody reportRequest: ReportRequest
     ) : String {
-        val aa = PlusFriendCategory.findPlusFriendCategory("증권사")
-        println(aa)
-
         reportService.create(reportRequest)
         return "success"
     }
