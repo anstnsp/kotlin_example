@@ -39,7 +39,16 @@ steps:
 #        from_secret: docker_username
 #      password:
 #        from_secret: docker_password
+  - name: build
+    image: gradle:6.6.1-jdk14
+    pull: true
+    commands:
+      - ./gradlew clean
+      - ./gradlew test
 
+    when:
+      status:
+        - success
   - name: 슬랙 알림
     image: plugins/slack
     settings:
