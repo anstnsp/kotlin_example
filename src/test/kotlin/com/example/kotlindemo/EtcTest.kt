@@ -37,6 +37,7 @@ class EtcTest {
         println("cityBook =>> $cityBook")
         println("cityBook =>> $cityBook")
         println("cityBook =>> $cityBook")
+
         println("cityBook =>> $cityBook")
         //결과 : cityBook =>> {02-888-123456=서울, 02-777-789123=광주, 02-999-456789=전주, 02-999-123456=전주}
 
