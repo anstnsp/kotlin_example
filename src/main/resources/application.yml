@@ -32,7 +32,7 @@ spring:
 
 logging:
   level:
-    com.example.kotlin.demo: debug
+    com.example.kotlindemo: debug
     org:
       hibernate:
         sql: debug

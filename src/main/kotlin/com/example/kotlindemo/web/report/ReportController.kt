@@ -1,12 +1,13 @@
 package com.example.kotlindemo.web.report
 
+
+
+import com.example.kotlindemo.annotation.Logging
 import com.example.kotlindemo.web.base.BaseController
 import com.example.kotlindemo.common.Log
+import com.example.kotlindemo.domain.report.Report
 import com.example.kotlindemo.web.report.dto.ReportRequest
-
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.*
 
 @BaseController
 class ReportController(
@@ -15,12 +16,20 @@ class ReportController(
 
     companion object : Log
 
+    @Logging
     @PostMapping("/report")
     fun create(
         @RequestBody reportRequest: ReportRequest
-    ) {
-        logger.info("request : $reportRequest")
+    ) : String {
         reportService.create(reportRequest)
+        return "success"
+    }
 
+    @Logging
+    @GetMapping("/report/{reportId}")
+    fun findById(
+        @PathVariable reportId: Long
+    ): Report {
+        return reportService.findReportOne(reportId)
     }
 }
