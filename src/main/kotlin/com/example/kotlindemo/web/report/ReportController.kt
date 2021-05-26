@@ -20,6 +20,7 @@ class ReportController(
         @RequestBody reportRequest: ReportRequest
     ) : String {
         reportService.create(reportRequest)
+
         return "success111"
     }
 
