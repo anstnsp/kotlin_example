@@ -18,22 +18,6 @@ steps:
       status:
         - success
 
-#  - name: 슬랙 알림
-#    image: plugins/slack
-#    settings:
-#      webhook:
-#      channel: 드론테스트용
-#      template: >
-#        *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Deploy* (type: `{{ build.event }}`)
-#        Repo: <https://github.com/{{ repo.owner }}/{{ repo.name }}|{{ repo.name }}>
-#        Commit: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
-#        Tags: <https://github.com/{{ repo.owner }}/{{ repo.name }}/tree/{{ build.tag }}|{{ build.tag }}>
-#        Branch: {{ build.branch }}
-#        Author: {{ build.author }}
-#        Link:  <{{ build.link }}|Visit build page ↗>
-#    when:
-#      status: [ success, failure ]
-
 trigger:
   event:
     - push
